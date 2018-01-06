@@ -1,0 +1,19 @@
+{
+  "name": "hipcamp_front_end_test",
+  "version": "1.0.0",
+  "description": "Front end coding test for Hipcamp.",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+  "keywords": [],
+  "author": "William Widmer",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^3.10.0"
+  },
+  "dependencies": {
+    "lodash": "^4.17.4"
+  }
+}
