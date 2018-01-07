@@ -20,7 +20,7 @@ class CampgroundPage extends React.Component {
 
     componentDidMount() {
         API.campground.getFeatures().then( (features) => {
-          this.setState({ features })
+          this.setState({ features, loading: false })
         })
     }
 
@@ -29,7 +29,9 @@ class CampgroundPage extends React.Component {
 
       return (
         <Page>
-          <FeatureList features={features} />
+            <div className="sidebar">
+              <FeatureList features={features} />
+            </div>
         </Page>
       )
     }

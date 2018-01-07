@@ -1,8 +1,35 @@
 $font-stack: Helvetica, sans-serif;
 
+.page {
+  display: grid;
+  grid-template-columns: 3fr;
+  grid-template-rows: minmax(1fr, 500px);
+  margin: 2em;
+}
 
-body {
-    background-color: #000;
+
+.featurelist {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: minmax(1fr, 100px);
+  font-family: $font-stack;
+
+  h2 {
+    margin: 0;
+  }
+}
+
+.feature {
+  padding: 1em;
+  list-style-type: none;
+}
+
+.present {
+  border: 1px green solid
+}
+.not-present {
+  border: 1px red solid
 }
 
 .header {
@@ -11,5 +38,11 @@ body {
     right: auto;
     bottom: auto;
     width: 100%;
-    background-color: #000;
+    height: auto;
+    display: flex;
+    min-height: 30px;
+    background-color: #1b1c1d;
+    display: flex;
+    margin: 0;
+    position: fixed;
 }

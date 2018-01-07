@@ -6,7 +6,7 @@ class Page extends React.Component {
     render () {
 
       return (
-        <div>
+        <div className="page">
           <Header />
           <div> {this.props.children} </div>
         </div>
