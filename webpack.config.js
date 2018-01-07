@@ -25,14 +25,7 @@ module.exports = {
           }
         },
         {
-          test: /\.css$/,
-          use: [
-            'style-loader',
-            'css-loader'
-          ]
-        },
-        {
-          test: /\.scss$/,
+          test: /\.s?css$/,
           use:  extractSass.extract( {
             use: [
               'css-loader',
@@ -40,6 +33,10 @@ module.exports = {
             ],
             fallback: 'style-loader'
           })
+        },
+        {
+          test: /\.(eot|svg|ttf|woff|woff2)$/,
+          loader: 'file-loader?name=/fonts/[name].[ext]'
         }
       ]
     },

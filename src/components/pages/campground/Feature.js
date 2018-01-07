@@ -2,31 +2,33 @@ import React from 'react';
 
 
 class Feature extends React.Component {
-    constructor(props){
-    	super(props);
-    	this.state = {
-        hideSubfeatures: true
-      };
-    }
-
     toggleSubfeatures() {
       this.setState({ hideSubfeatures: !this.state.hideSubfeatures });
+    }
+
+    constructor(props){
+      super(props);
+      this.state = {
+        hideSubfeatures: true
+      };
+      this.toggleSubfeatures = this.toggleSubfeatures.bind(this);
     }
 
     render () {
         const { title, presence, subfeatures, key } = this.props;
         const { hideSubfeatures } = this.state;
-        console.log(this.props);
-        const present = presence ? 'present' : 'not-present';
+        const color = presence ? 'green' : 'red';
         const hidden = (features || []).length ? '' : 'hidden';
-        const showOrHide = hideSubfeatures ? 'show' : 'hide';
+        const showOrHide = hideSubfeatures ? 'toggle down icon' : 'toggle up icon';
+        const checked = presence ? 'check circle outline icon': 'radio icon'
+
         return (
-          <li className={`feature ${present}`}>
-            <span className={`icon ${title}`} />
+          <li className={`feature ${color}`} onClick={this.toggleSubfeatures}>
+            <i className={`${color} ${checked}`} />
             <div>
               {title}
             </div>
-            <span className={`icon ${showOrHide} ${hidden}`} onClick={this.toggleSubfeatures}/>
+            <i className={`${showOrHide} ${hidden} clickable`}/>
             <FeatureList
               features={subfeatures} subfeature={true} hidden={hideSubfeatures}
             />
@@ -38,12 +40,13 @@ class Feature extends React.Component {
 class FeatureList extends React.Component {
 
   render () {
-    const { features, subfeature } = this.props;
+    const { features, subfeature, hidden } = this.props;
     if (!(features || []).length)
       return "";
     const subfeatureList = subfeature ? 'subfeature' : '';
+    const hide = hidden ? 'hidden': '';
     return (
-      <div className="featurelist">
+      <div className={`featurelist ${hide}`}>
         {!subfeature && <h2> Features </h2>}
         <ul className={`${subfeatureList}`}>
           {

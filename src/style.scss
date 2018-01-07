@@ -1,12 +1,18 @@
 $font-stack: Helvetica, sans-serif;
 
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  border-radius: $radius;
+}
+
 .page {
   display: grid;
   grid-template-columns: 3fr;
   grid-template-rows: minmax(1fr, 500px);
   margin: 2em;
 }
-
 
 .featurelist {
   width: 100%;
@@ -20,9 +26,24 @@ $font-stack: Helvetica, sans-serif;
   }
 }
 
+.hidden {
+  display: none;
+}
+.clickable {
+  pointer: cursor;
+}
 .feature {
   padding: 1em;
   list-style-type: none;
+  border: 1px #000 solid;
+  border-radius: 3px;
+
+  .subfeature {
+    .feature {
+      border: none;
+    }
+  }
+
 }
 
 .present {
