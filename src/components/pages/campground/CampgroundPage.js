@@ -24,7 +24,7 @@ class CampgroundPage extends React.Component {
       const { features, loading, campground } = this.state;
 
       return (
-        <Page>
+        <Page loading={loading}>
             <FeatureList features={features} />
         </Page>
       )

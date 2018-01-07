@@ -9,6 +9,9 @@ $font-stack: Helvetica, sans-serif;
 
 .page {
   .content {
+    margin: auto;
+    width: 50%;
+    padding: 10px;
     display: grid;
     grid-template-columns: 3fr;
     grid-template-rows: minmax(1fr, 500px);
@@ -75,4 +78,20 @@ $font-stack: Helvetica, sans-serif;
     display: flex;
     margin: 0;
     position: fixed;
+}
+
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.loader-active {
+  margin: auto;
+  border: 5px solid #f3f3f3;
+  border-top: 5px solid #3498db;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  animation: spin 2s linear infinite;
 }

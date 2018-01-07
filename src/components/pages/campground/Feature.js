@@ -1,5 +1,5 @@
 import React from 'react';
-
+import PropTypes from 'prop-types';
 
 class Feature extends React.Component {
     toggleSubfeatures() {
@@ -15,7 +15,7 @@ class Feature extends React.Component {
     }
 
     render () {
-        const { title, presence, subfeatures, key } = this.props;
+        const { title, presence, subfeatures } = this.props;
         const { hideSubfeatures } = this.state;
         var color = presence ? 'green' : 'red';
         var checked = presence ? 'checkmark icon': 'minus icon';
@@ -46,6 +46,12 @@ class Feature extends React.Component {
     }
 }
 
+Feature.propTypes = {
+  title: PropTypes.string.isRequired,
+  presence: PropTypes.bool,
+  subfeatures: PropTypes.array
+}
+
 class FeatureList extends React.Component {
 
   render () {
@@ -66,6 +72,12 @@ class FeatureList extends React.Component {
       </div>
     )
   }
+}
+
+FeatureList.proptype = {
+  features: PropTypes.array.isRequired,
+  subfeature: PropTypes.bool,
+  hidden: PropTypes.bool
 }
 
 export default FeatureList;
