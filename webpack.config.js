@@ -26,7 +26,7 @@ module.exports = {
         },
         {
           test: /\.s?css$/,
-          use:  extractSass.extract( {
+          use: extractSass.extract( {
             use: [
               'css-loader',
               'sass-loader'
@@ -35,8 +35,8 @@ module.exports = {
           })
         },
         {
-          test: /\.(eot|svg|ttf|woff|woff2)$/,
-          loader: 'file-loader?name=/fonts/[name].[ext]'
+          test: /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9=&.]+)?$/,
+          loader: 'file-loader'
         }
       ]
     },

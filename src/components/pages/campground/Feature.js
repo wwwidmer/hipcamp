@@ -18,17 +18,19 @@ class Feature extends React.Component {
         const { title, presence, subfeatures, key } = this.props;
         const { hideSubfeatures } = this.state;
         const color = presence ? 'green' : 'red';
-        const hidden = (features || []).length ? '' : 'hidden';
-        const showOrHide = hideSubfeatures ? 'toggle down icon' : 'toggle up icon';
-        const checked = presence ? 'check circle outline icon': 'radio icon'
+        const hidden = (subfeatures || []).length ? '' : 'hidden';
+        const showOrHide = hideSubfeatures ? 'chevron down icon' : 'chevron up icon';
+        const checked = presence ? 'checkmark icon': 'minus icon'
 
         return (
-          <li className={`feature ${color}`} onClick={this.toggleSubfeatures}>
-            <i className={`${color} ${checked}`} />
-            <div>
-              {title}
+          <li className={`feature ${color}`}>
+            <div className="inline clickable" onClick={this.toggleSubfeatures}>
+              <i className={`${color} ${checked}`} />
+              <div>
+                {title}
+              </div>
+              <i className={`${showOrHide} ${hidden} clickable`}/>
             </div>
-            <i className={`${showOrHide} ${hidden} clickable`}/>
             <FeatureList
               features={subfeatures} subfeature={true} hidden={hideSubfeatures}
             />

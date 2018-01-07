@@ -27,17 +27,27 @@ $font-stack: Helvetica, sans-serif;
 }
 
 .hidden {
-  display: none;
+  display: none !important;
 }
 .clickable {
-  pointer: cursor;
+  cursor: pointer;
 }
 .feature {
-  padding: 1em;
+  padding: .75em;
   list-style-type: none;
-  border: 1px #000 solid;
-  border-radius: 3px;
+  border: 1px #D9D9D9 solid;
+  border-radius: 5px;
 
+  .inline  {
+    min-height: 1em;
+
+    * {
+      float: left;
+    }
+    i.chevron {
+      margin-left: .5em;
+    }
+  }
   .subfeature {
     .feature {
       border: none;
