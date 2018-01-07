@@ -8,7 +8,7 @@ class Page extends React.Component {
       return (
         <div className="page">
           <Header />
-          <div> {this.props.children} </div>
+          <div className="content"> {this.props.children} </div>
         </div>
       )
     }

@@ -10,11 +10,7 @@ class CampgroundPage extends React.Component {
     	this.state = {
         loading: true,
         features: [],
-        campground: {
-            name: 'Smokemont Campground',
-            location: 'Smokemont Campground Rd A, Cherokee, NC 28719',
-
-        }
+        campground: {}
       };
     }
 
@@ -29,9 +25,7 @@ class CampgroundPage extends React.Component {
 
       return (
         <Page>
-            <div className="sidebar">
-              <FeatureList features={features} />
-            </div>
+            <FeatureList features={features} />
         </Page>
       )
     }

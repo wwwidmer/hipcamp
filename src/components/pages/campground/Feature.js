@@ -17,10 +17,17 @@ class Feature extends React.Component {
     render () {
         const { title, presence, subfeatures, key } = this.props;
         const { hideSubfeatures } = this.state;
-        const color = presence ? 'green' : 'red';
+        var color = presence ? 'green' : 'red';
+        var checked = presence ? 'checkmark icon': 'minus icon';
         const hidden = (subfeatures || []).length ? '' : 'hidden';
         const showOrHide = hideSubfeatures ? 'chevron down icon' : 'chevron up icon';
-        const checked = presence ? 'checkmark icon': 'minus icon'
+
+        for (var i = 0; i < subfeatures.length; i++) {
+          if (presence && !subfeatures[i].presence) {
+            color = 'yellow';
+            checked = 'warning sign icon';
+          }
+        }
 
         return (
           <li className={`feature ${color}`}>
@@ -49,7 +56,6 @@ class FeatureList extends React.Component {
     const hide = hidden ? 'hidden': '';
     return (
       <div className={`featurelist ${hide}`}>
-        {!subfeature && <h2> Features </h2>}
         <ul className={`${subfeatureList}`}>
           {
             features.map( ( feature, i) => {
