@@ -1,9 +1,11 @@
-import Features from 'camp_features';
+import Features from './camp_features';
 
 const api = {
     campground: {
-        getFeatures: id => new Promise( (accept, reject) => {
-          setTimeout(()=>{accept(Features)}, 250)
+        getFeatures: id => new Promise( (resolve, reject) => {
+          setTimeout(()=>{resolve(Features)}, 250)
         })
     }
 }
+
+export default api;

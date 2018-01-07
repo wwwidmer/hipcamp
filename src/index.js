@@ -1,12 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import './style.css';
-
-const Test = () => <p> test </p>
-
+import App from './App'
+import './style.scss';
 
 ReactDOM.render(
-  <Test />,
+  <App />,
   document.getElementById('features')
 )

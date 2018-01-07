@@ -1,6 +1,7 @@
 const path = require('path');
 
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const extractSass = new ExtractTextPlugin({
     filename: "[name].[contenthash].css",
@@ -16,7 +17,7 @@ module.exports = {
     module: {
       rules: [
         {
-          test: /\.js$/,
+          test: /\.jsx?$/,
           exclude: /node_modules/,
           loader: 'babel-loader',
           query: {
@@ -43,7 +44,13 @@ module.exports = {
       ]
     },
     plugins: [
-      extractSass
+      extractSass,
+      new HtmlWebpackPlugin({
+         hash: true,
+         myPageHeader: 'Hello World',
+         template: './src/campground.html',
+         filename: './campground.html'
+       })
     ],
     resolve: {
       extensions: ['.js', '.jsx'],
