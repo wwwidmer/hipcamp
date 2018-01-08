@@ -45,7 +45,7 @@ export class Feature extends React.Component {
               <i className={`${showOrHide} ${hidden} clickable`}/>
             </div>
             <FeatureList
-              features={subfeatures} subfeature={true} hidden={hideSubfeatures}
+              features={subfeatures || []} subfeature={true} hidden={hideSubfeatures}
             />
           </li>
         )
