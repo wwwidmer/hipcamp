@@ -15,7 +15,7 @@ export class Feature extends React.Component {
     }
 
     render () {
-        const { title, presence, subfeatures } = this.props;
+        const { title, presence, subfeatures, id } = this.props;
         const { hideSubfeatures } = this.state;
         var color = presence ? 'green' : 'red';
         var checked = presence ? 'checkmark icon': 'minus icon';
@@ -36,7 +36,7 @@ export class Feature extends React.Component {
         }
 
         return (
-          <li className={`feature ${color}`}>
+          <li className={`feature ${color}`} id={`feature-${title}-${id}`}>
             <div className="inline clickable" onClick={this.toggleSubfeatures}>
               <i className={`${color} ${checked}`} />
               <div>
@@ -71,7 +71,7 @@ class FeatureList extends React.Component {
         <ul className={`${subfeatureList}`}>
           {
             features.map( ( feature, i) => {
-                return <Feature key={i} {...feature} />
+                return <Feature key={i} {...feature} id={i} />
             })
           }
         </ul>
