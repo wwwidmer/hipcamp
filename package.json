@@ -4,7 +4,7 @@
   "description": "Front end coding test for Hipcamp.",
   "main": "src/index.js",
   "scripts": {
-    "test": "jest --verbose",
+    "test": "jest",
     "build": "webpack",
     "start": "webpack -d --watch"
   },
@@ -37,20 +37,5 @@
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "semantic-ui-icon": "^2.2.12"
-  },
-  "jest": {
-    "collectCoverageFrom": [
-      "src/**/*.{js,jsx}"
-    ],
-    "testMatch": [
-      "<rootDir>/src/**/__tests__/**/*.js?(x)",
-      "<rootDir>/src/**/?(*.)(spec|test).js?(x)"
-    ],
-    "transform": {
-      "^.+\\.(js|jsx)$": "<rootDir>/node_modules/babel-jest"
-    },
-    "transformIgnorePatterns": [
-      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx)$"
-    ]
   }
 }
