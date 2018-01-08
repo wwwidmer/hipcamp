@@ -10,8 +10,7 @@ class CampgroundPage extends React.Component {
     	super(props);
     	this.state = {
         loading: true,
-        features: [],
-        campground: {}
+        features: []
       };
     }
 
@@ -22,7 +21,7 @@ class CampgroundPage extends React.Component {
     }
 
     render () {
-      const { features, loading, campground } = this.state;
+      const { features, loading } = this.state;
 
       return (
         <Page loading={loading}>
