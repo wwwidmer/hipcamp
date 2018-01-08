@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import API from '../../../api';
 import Page from '../../common/Page';
@@ -31,4 +32,7 @@ class CampgroundPage extends React.Component {
     }
 }
 
+CampgroundPage.propTypes = {
+  id: PropTypes.number.isRequired
+}
 export default CampgroundPage;

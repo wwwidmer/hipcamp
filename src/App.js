@@ -4,6 +4,6 @@ import CampgroundPage from './components/pages/campground/CampgroundPage';
 
 export default () => (
   <div className="container">
-    <CampgroundPage />
+    <CampgroundPage id={256} />
   </div>
 )

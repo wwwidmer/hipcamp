@@ -1,4 +1,6 @@
-$font-stack: Helvetica, sans-serif;
+$main-font-family: Helvetica, sans-serif;
+$medium-screen: 1000px;
+$small-screen: 700px;
 
 @mixin border-radius($radius) {
   -webkit-border-radius: $radius;
@@ -10,18 +12,27 @@ $font-stack: Helvetica, sans-serif;
 .page {
   .content {
     margin: auto;
-    width: 50%;
+    width: 30%;
     padding: 10px;
     display: grid;
     grid-template-columns: 3fr;
-    grid-template-rows: minmax(1fr, 500px);
+
+    @media screen and (max-width: $medium-screen) {
+      width: 50%;
+      padding: 5px;
+    }
+
+    @media screen and (max-width: $small-screen) {
+      width: 100%;
+      padding: 0;
+    }
   }
   margin: 2em;
 }
 
 .featurelist {
   width: 100%;
-  font-family: $font-stack;
+  font-family: $main-font-family;
 }
 
 .hidden {

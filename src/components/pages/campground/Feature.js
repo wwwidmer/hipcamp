@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-class Feature extends React.Component {
+export class Feature extends React.Component {
     toggleSubfeatures() {
       this.setState({ hideSubfeatures: !this.state.hideSubfeatures });
     }
@@ -22,7 +22,13 @@ class Feature extends React.Component {
         const hidden = (subfeatures || []).length ? '' : 'hidden';
         const showOrHide = hideSubfeatures ? 'chevron down icon' : 'chevron up icon';
 
-        for (var i = 0; i < subfeatures.length; i++) {
+        /* If a feature is present but not all subfeatures are
+        *  Display a "warning" icon - to prompt further investigation
+        *  Case: Trash is considered present because there is a composting bin;
+        *        Yet campers are still required to pack out normal trash;
+        *        It would be potentially bad for LNT if campers thought trash was available.
+        */
+        for (var i = 0; i < (subfeatures || []).length; i++) {
           if (presence && !subfeatures[i].presence) {
             color = 'yellow';
             checked = 'warning sign icon';
@@ -74,7 +80,7 @@ class FeatureList extends React.Component {
   }
 }
 
-FeatureList.proptype = {
+FeatureList.propTypes = {
   features: PropTypes.array.isRequired,
   subfeature: PropTypes.bool,
   hidden: PropTypes.bool

@@ -21,7 +21,7 @@ class Page extends React.Component {
     }
 }
 
-Page.PropTypes = {
+Page.propTypes = {
   loading: PropTypes.bool
 }
 
